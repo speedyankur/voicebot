@@ -1,0 +1,26 @@
+.me {
+  float: right;
+}
+.bot {
+  float: left;
+}
+.chat-item {
+  height: 50px;
+}
+
+.chat-item span {
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: #fff;
+  margin: 10px;
+}
+.chat-item span.me {
+  background-color: blue;
+  border-bottom-right-radius: 2px;
+}
+
+.chat-item span.bot {
+  color: black;
+  border-bottom-left-radius: 2px;
+  background-color: aquamarine;
+}
