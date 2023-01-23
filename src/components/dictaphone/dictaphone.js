@@ -12,6 +12,7 @@ const Dictaphone = () => {
   const [messages, setMessages] = useState([]);
   const [pending, setPending] = useState(false);
   const { speak } = useSpeechSynthesis();
+  const [apiKey, setApiKey] = React.useState("");
   const {
     transcript,
     listening,
@@ -30,7 +31,7 @@ const Dictaphone = () => {
       setMessages(messages);
       setPending(true);
       async function fetchData() {
-        const response = await ChatGPT(finalTranscript);
+        const response = await ChatGPT(finalTranscript, apiKey);
         setPending(false);
         console.log(response);
         const { choices } = response.data;
@@ -68,6 +69,15 @@ const Dictaphone = () => {
       </div>
       <div className="controls">
         <p>Microphone: {listening ? "on" : "off"}</p>
+        <div className="keyField">
+          <input
+            type="password"
+            name="apikey"
+            placeholder="Enter chat GPT key"
+            value={apiKey}
+            onChange={(e) => setApiKey(e.target.value)}
+          ></input>
+        </div>
         <button onClick={SpeechRecognition.startListening}>Speak</button>
       </div>
     </div>

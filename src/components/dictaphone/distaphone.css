@@ -5,3 +5,8 @@
 .controls {
   clear: both;
 }
+.keyField {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
