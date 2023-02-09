@@ -3,7 +3,6 @@ const { Configuration, OpenAIApi } = require("openai");
 const ChatGPT = (msg, token) => {
   const configuration = new Configuration({
     apiKey: token ? token : process.env.APIKEY,
-    //apiKey: "git push origin master",
   });
   const openai = new OpenAIApi(configuration);
 

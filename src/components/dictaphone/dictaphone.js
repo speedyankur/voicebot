@@ -14,7 +14,6 @@ const Dictaphone = () => {
   const { speak } = useSpeechSynthesis();
   const [apiKey, setApiKey] = React.useState("");
   const {
-    transcript,
     listening,
     interimTranscript,
     finalTranscript,
@@ -33,7 +32,6 @@ const Dictaphone = () => {
       async function fetchData() {
         const response = await ChatGPT(finalTranscript, apiKey);
         setPending(false);
-        console.log(response);
         const { choices } = response.data;
         if (choices.length > 0) {
           messages.push({
